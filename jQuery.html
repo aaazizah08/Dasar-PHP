@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh pemanfaatan jQuery sederhana</title>
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #6ab374;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h3>Pemanfaatan jQuery: Ubah Warna Latar</h3>
+    <button id="ubahWarnaButton">Ubah Warna Latar</button>
+    <script>
+        // Ketika tombol diklik
+        $('#ubahWarnaButton').click(function() {
+            // Mengubah warna latar belakang menjadi abu-abu
+            $('body').css('background-color', '#a9a9a9');
+        });
+    </script>
+</body>
+</html>

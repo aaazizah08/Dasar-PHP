@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Dialog</title>
+<style>
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .dialog-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .progress-bar {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto;
+  }
+
+  .progress-bar .progress {
+    width: 0;
+    height: 100%;
+    background: #4caf50;
+  }
+</style>
+</head>
+<body>
+
+<button onclick="openDialog()">Download</button>
+
+<div id="downloadDialog" class="dialog-overlay" style="display:none;">
+  <div class="dialog-box">
+    <p>Downloading...</p>
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openDialog() {
+    var dialog = document.getElementById("downloadDialog");
+    dialog.style.display = "flex";
+
+    var progress = 0;
+    var progressBar = document.getElementById("progress");
+    var interval = setInterval(function() {
+      progress += Math.random() * 10;
+      progressBar.style.width = progress + "%";
+      if (progress >= 100) {
+        clearInterval(interval);
+        dialog.style.display = "none";
+      }
+    }, 500);
+  }
+</script>
+
+</body>
+</html>
